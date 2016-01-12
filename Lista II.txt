@@ -1,0 +1,57 @@
+1. O que é sincronização? Quais são as diferenças básicas de implementação da
+sincronização entre sistemas centralizados e distribuídos?
+
+Sincronização é a técnica pela qual se estabelece um tempo que irá ser referência para todos os nós da rede, 
+de forma que se diminua o máximo possível o problema de falta de concordância de tempo global.
+Num sistema centralizado, o uso de semáforos ajuda no controle de qual processo terá a prioridade em determinado momento.
+Além disso, como o tempo é um só, basta que os processos "perguntem" o tempo para o sistema a fim de evitar conflitos.
+
+2. Quais são as dificuldade na implementação de transações em sistemas
+verdadeiramente distribuídos?
+
+O problema é que fica difícil realizar uma verificação da atomicidade da transação em um SD.
+
+3. Comente sobre as dificuldades de sincronização encontradas pelo comando make
+do Unix, utilizando como parâmetro o fenômeno de escorregamento de clock.
+
+O comando make verifica se o objeto foi criado antes ou depois do arquivo compilado. Se o objeto a.o tem tempo 0123, e
+o arquivo a.c for modificado em outra máquina, mas no tempo 0122, o make não irá recompilar. Pode aí surgir o problema de
+existirem parâmetros de a.c que o objeto a.o não atende, pois está desatualizado. O fenômeno do escorregamento influencia,
+pois é ele que faz com que as máquinas tenham tempos diferentes.
+
+4. O que são clocks lógicos? Quais são suas vantagens sobre a utilização de clocks
+físicos?
+
+Clocks lógicos são sincronizações lógicas dos relógios das máquinas. Lamport afirmou que o importante não é que as máquinas
+estejam marcando a mesma hora real, mas simplesmente que elas concordem na ordem dos eventos. É preciso saber quais eventos
+ocorrem primeiro. Uma analogia seria a dos filmes de espiões, nos quais os personagens sincronizam seus relógios, 
+independente da hora real. A vantagem em se utilizar clocks lógicos é que pode-se atualizar o relógio da forma que se quiser.
+
+
+5. O que é UTC? Como o UTC vem sendo utilizado para resolver problemas de
+sincronização?
+
+UTC é o relógio universal, uma melhoria do TAI. Ele vai aumentando o TAI, de forma que fique em concordância com o tempo
+solar.  Os nós da rede consultam o UTC de tempos em tempos para se atualizarem seus clocks.
+
+6. Qual dos métodos de exclusão mútua é o mais indicado para os SDs? Por quê?
+
+O método do token ring, pois ele garante que apenas o processo que possui o token irá entrar na região crítica. Além
+disso, este método evita o ponto único de falha, pois quando um processo falha, este é retirado do anel, que continua 
+funcionando.
+
+7. Implementar um programa utilizando JRMI e MPI que seja capaz de executar
+paralelamente a seguinte sequencia:
+
+for(int i=0, i<array.length;i++){
+	array[i]*=5;
+}
+
+Obs.: o array deve ser iniciado com valores aleatórios com uma rotina também
+paralela.
+
+
+8. Desenvolva dois programas diferentes para realizar o cálculo de PI utilizando
+OpenMP e JRMI de forma paralela. Os limites das interações devem ser previamente
+estabelecidos. Escolha um dos métodos e implemente nas duas tecnologias diferentes
+(OpenMP e JRMI).
