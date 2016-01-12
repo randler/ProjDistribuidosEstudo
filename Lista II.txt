@@ -4,9 +4,9 @@ sincronização entre sistemas centralizados e distribuídos?
 Sincronização é a técnica pela qual se estabelece um tempo que irá ser referência para todos os nós da rede, 
 de forma que se diminua o máximo possível o problema de falta de concordância de tempo global.
 Num sistema centralizado, o uso de semáforos ajuda no controle de qual processo terá a prioridade em determinado momento.
-Além disso, como o tempo é um só, basta que os processos "perguntem" o tempo para o sistema a fim de evitar conflitos. Distr
+Além disso, como o tempo é um só, basta que os processos "perguntem" o tempo para o sistema a fim de evitar conflitos. Distrbuidos usam uma técnica propria para redes, RPC.
 
-2. Quais são as dificuldade na implementação de transações em buidos usam uma técnica propria para redes, RPC.
+2. Quais são as dificuldade na implementação de transações em sistemas
 verdadeiramente distribuídos?
 
 O problema é que fica difícil realizar uma verificação da atomicidade da transação em um SD.
