@@ -1,43 +1,43 @@
-1. O que È sincronizaÁ„o? Quais s„o as diferenÁas b·sicas de implementaÁ„o da
-sincronizaÁ„o entre sistemas centralizados e distribuÌdos?
+1. O que √© sincroniza√ß√£o? Quais s√£o as diferen√ßas b√°sicas de implementa√ß√£o da
+sincroniza√ß√£o entre sistemas centralizados e distribu√≠dos?
 
-SincronizaÁ„o È a tÈcnica pela qual se estabelece um tempo que ir· ser referÍncia para todos os nÛs da rede, 
-de forma que se diminua o m·ximo possÌvel o problema de falta de concord‚ncia de tempo global.
-Num sistema centralizado, o uso de sem·foros ajuda no controle de qual processo ter· a prioridade em determinado momento.
-AlÈm disso, como o tempo È um sÛ, basta que os processos "perguntem" o tempo para o sistema a fim de evitar conflitos.
+Sincroniza√ß√£o √© a t√©cnica pela qual se estabelece um tempo que ir√° ser refer√™ncia para todos os n√≥s da rede, 
+de forma que se diminua o m√°ximo poss√≠vel o problema de falta de concord√¢ncia de tempo global.
+Num sistema centralizado, o uso de sem√°foros ajuda no controle de qual processo ter√° a prioridade em determinado momento.
+Al√©m disso, como o tempo √© um s√≥, basta que os processos "perguntem" o tempo para o sistema a fim de evitar conflitos. Distr
 
-2. Quais s„o as dificuldade na implementaÁ„o de transaÁıes em sistemas
-verdadeiramente distribuÌdos?
+2. Quais s√£o as dificuldade na implementa√ß√£o de transa√ß√µes em buidos usam uma t√©cnica propria para redes, RPC.
+verdadeiramente distribu√≠dos?
 
-O problema È que fica difÌcil realizar uma verificaÁ„o da atomicidade da transaÁ„o em um SD.
+O problema √© que fica dif√≠cil realizar uma verifica√ß√£o da atomicidade da transa√ß√£o em um SD.
 
-3. Comente sobre as dificuldades de sincronizaÁ„o encontradas pelo comando make
-do Unix, utilizando como par‚metro o fenÙmeno de escorregamento de clock.
+3. Comente sobre as dificuldades de sincroniza√ß√£o encontradas pelo comando make
+do Unix, utilizando como par√¢metro o fen√¥meno de escorregamento de clock.
 
 O comando make verifica se o objeto foi criado antes ou depois do arquivo compilado. Se o objeto a.o tem tempo 0123, e
-o arquivo a.c for modificado em outra m·quina, mas no tempo 0122, o make n„o ir· recompilar. Pode aÌ surgir o problema de
-existirem par‚metros de a.c que o objeto a.o n„o atende, pois est· desatualizado. O fenÙmeno do escorregamento influencia,
-pois È ele que faz com que as m·quinas tenham tempos diferentes.
+o arquivo a.c for modificado em outra m√°quina, mas no tempo 0122, o make n√£o ir√° recompilar. Pode a√≠ surgir o problema de
+existirem par√¢metros de a.c que o objeto a.o n√£o atende, pois est√° desatualizado. O fen√¥meno do escorregamento influencia,
+pois √© ele que faz com que as m√°quinas tenham tempos diferentes.
 
-4. O que s„o clocks lÛgicos? Quais s„o suas vantagens sobre a utilizaÁ„o de clocks
-fÌsicos?
+4. O que s√£o clocks l√≥gicos? Quais s√£o suas vantagens sobre a utiliza√ß√£o de clocks
+f√≠sicos?
 
-Clocks lÛgicos s„o sincronizaÁıes lÛgicas dos relÛgios das m·quinas. Lamport afirmou que o importante n„o È que as m·quinas
-estejam marcando a mesma hora real, mas simplesmente que elas concordem na ordem dos eventos. … preciso saber quais eventos
-ocorrem primeiro. Uma analogia seria a dos filmes de espiıes, nos quais os personagens sincronizam seus relÛgios, 
-independente da hora real. A vantagem em se utilizar clocks lÛgicos È que pode-se atualizar o relÛgio da forma que se quiser.
+Clocks l√≥gicos s√£o sincroniza√ß√µes l√≥gicas dos rel√≥gios das m√°quinas. Lamport afirmou que o importante n√£o √© que as m√°quinas
+estejam marcando a mesma hora real, mas simplesmente que elas concordem na ordem dos eventos. √â preciso saber quais eventos
+ocorrem primeiro. Uma analogia seria a dos filmes de espi√µes, nos quais os personagens sincronizam seus rel√≥gios, 
+independente da hora real. A vantagem em se utilizar clocks l√≥gicos √© que pode-se atualizar o rel√≥gio da forma que se quiser.
 
 
-5. O que È UTC? Como o UTC vem sendo utilizado para resolver problemas de
-sincronizaÁ„o?
+5. O que √© UTC? Como o UTC vem sendo utilizado para resolver problemas de
+sincroniza√ß√£o?
 
-UTC È o relÛgio universal, uma melhoria do TAI. Ele vai aumentando o TAI, de forma que fique em concord‚ncia com o tempo
-solar.  Os nÛs da rede consultam o UTC de tempos em tempos para se atualizarem seus clocks.
+UTC √© o rel√≥gio universal, uma melhoria do TAI. Ele vai aumentando o TAI, de forma que fique em concord√¢ncia com o tempo
+solar.  Os n√≥s da rede consultam o UTC de tempos em tempos para se atualizarem seus clocks.
 
-6. Qual dos mÈtodos de exclus„o m˙tua È o mais indicado para os SDs? Por quÍ?
+6. Qual dos m√©todos de exclus√£o m√∫tua √© o mais indicado para os SDs? Por qu√™?
 
-O mÈtodo do token ring, pois ele garante que apenas o processo que possui o token ir· entrar na regi„o crÌtica. AlÈm
-disso, este mÈtodo evita o ponto ˙nico de falha, pois quando um processo falha, este È retirado do anel, que continua 
+O m√©todo do token ring, pois ele garante que apenas o processo que possui o token ir√° entrar na regi√£o cr√≠tica. Al√©m
+disso, este m√©todo evita o ponto √∫nico de falha, pois quando um processo falha, este √© retirado do anel, que continua 
 funcionando.
 
 7. Implementar um programa utilizando JRMI e MPI que seja capaz de executar
@@ -47,11 +47,11 @@ for(int i=0, i<array.length;i++){
 	array[i]*=5;
 }
 
-Obs.: o array deve ser iniciado com valores aleatÛrios com uma rotina tambÈm
+Obs.: o array deve ser iniciado com valores aleat√≥rios com uma rotina tamb√©m
 paralela.
 
 
-8. Desenvolva dois programas diferentes para realizar o c·lculo de PI utilizando
-OpenMP e JRMI de forma paralela. Os limites das interaÁıes devem ser previamente
-estabelecidos. Escolha um dos mÈtodos e implemente nas duas tecnologias diferentes
+8. Desenvolva dois programas diferentes para realizar o c√°lculo de PI utilizando
+OpenMP e JRMI de forma paralela. Os limites das intera√ß√µes devem ser previamente
+estabelecidos. Escolha um dos m√©todos e implemente nas duas tecnologias diferentes
 (OpenMP e JRMI).
